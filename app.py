@@ -8,7 +8,7 @@ from utils.charts import generate_chart
 from data.generate_data import create_database
 
 if not os.path.exists("sales.db"):
-    create_database()
+    generate_sales_data()
 
 # Set page configuration
 st.set_page_config(page_title="AI Business Analyst Copilot", layout="wide")
