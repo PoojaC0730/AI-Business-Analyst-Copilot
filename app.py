@@ -5,6 +5,10 @@ from utils.validator import is_safe_sql
 from utils.db import execute_sql
 from utils.explain import explain_sql
 from utils.charts import generate_chart
+from data.generate_data import create_database
+
+if not os.path.exists("sales.db"):
+    create_database()
 
 # Set page configuration
 st.set_page_config(page_title="AI Business Analyst Copilot", layout="wide")
