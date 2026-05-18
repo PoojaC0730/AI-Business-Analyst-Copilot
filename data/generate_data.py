@@ -97,7 +97,9 @@ if __name__ == "__main__":
     df = generate_sales_data(5000)
     
     # Save to SQLite
-    db_path = "sales.db"
+    import os
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    db_path = os.path.join(base_dir, "sales.db")
     conn = sqlite3.connect(db_path)
     df.to_sql("sales", conn, if_exists="replace", index=False)
     conn.close()

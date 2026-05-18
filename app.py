@@ -6,9 +6,13 @@ from utils.db import execute_sql
 from utils.explain import explain_sql
 from utils.charts import generate_chart
 from data.generate_data import generate_sales_data
+import sqlite3
 
 if not os.path.exists("sales.db"):
-    generate_sales_data()
+    df_gen = generate_sales_data(5000)
+    conn = sqlite3.connect("sales.db")
+    df_gen.to_sql("sales", conn, if_exists="replace", index=False)
+    conn.close()
 
 # Set page configuration
 st.set_page_config(page_title="AI Business Analyst Copilot", layout="wide")
