@@ -5,7 +5,7 @@ from utils.validator import is_safe_sql
 from utils.db import execute_sql
 from utils.explain import explain_sql
 from utils.charts import generate_chart
-from data.generate_data import create_database
+from data.generate_data import generate_sales_data
 
 if not os.path.exists("sales.db"):
     generate_sales_data()
