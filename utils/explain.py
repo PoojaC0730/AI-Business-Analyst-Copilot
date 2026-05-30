@@ -31,7 +31,14 @@ def explain_sql(question, sql, api_key=None):
         - "type": One of "bar", "line", "pie", "scatter", or null.
         - "x_col": The exact column name from the SQL output for the X axis (or names for pie).
         - "y_col": The exact column name from the SQL output for the Y axis (or values for pie).
-        - "title": A descriptive title for the chart.
+        - "color_col": (Optional) The column name from the SQL output to group data by color (e.g. region, category, customer_type).
+        - "barmode": (Optional) For bar charts with color groupings, either "group", "stack", or "overlay".
+        - "orientation": (Optional) Chart orientation. Use "h" (horizontal) or "v" (vertical). Highly recommend using "h" for bar charts when displaying category/product/city rankings.
+        - "sorting": (Optional) "descending" or "ascending" (to sort data based on the y-axis values).
+        - "title": A descriptive strategic title for the chart.
+        - "annotation_text": (Optional) A high-impact strategic insight derived from the query to highlight on the chart (e.g. "Laptop contributed -50% to drop" or "Mumbai revenue up 42%"). Keep under 40 characters.
+        - "annotation_x": (Optional) The specific category or value on the x-axis where the arrow should point (must match a potential value in x_col).
+        - "annotation_y": (Optional) The specific numeric value on the y-axis where the arrow should point (must be a potential value in y_col).
     
     Respond ONLY with valid JSON.
     """
